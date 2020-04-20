@@ -14,8 +14,8 @@
 (deftype PersistentSortedSet [^IPersistentCollection sorted-set comparator]
     clojure.lang.IPersistentCollection
     (count [this] (.count sorted-set))
-    (cons [this x] (->PersistentSortedSet (.cons sorted-set x) comparator))
-    (empty [this] (->PersistentSortedSet (.empty sorted-set) comparator))
+    (cons [this x] (PersistentSortedSet. (.cons sorted-set x) comparator))
+    (empty [this] (PersistentSortedSet. (.empty sorted-set) comparator))
     (equiv [this x] (.equiv sorted-set))
 
     clojure.lang.Seqable
